@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DAL_ACCOUNTING.Models.ChartOfAccount>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Charts of Account</h1>
+
+<table id="myTable" class="display">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descrip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcctType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descrip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcctType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balance)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
